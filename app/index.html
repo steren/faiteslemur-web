@@ -38,9 +38,10 @@
             </div>
             <form ng-show="showLogin"  class="navbar-form"
               ng-submit="signin(user)" ng-controller="SignInCtrl">
-              <input type="text" ng-model="user.username" placeholder="username" autofocus class="span2">
+              <input type="text" ng-model="user.username" placeholder="email" autofocus class="span2">
               <input type="password" ng-model="user.password" placeholder="password" class="span2">
               <button class="btn btn-primary" >Sign In</button>
+              <a class="btn" href="#/register">Register</a>
             </form>
           </div>
           <div class="navbar-form pull-right" ng-show="auth.currentUser">
