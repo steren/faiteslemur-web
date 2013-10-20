@@ -9,6 +9,14 @@ angular.module('faiteslemurApp', ['Parse'])
       }
     };
 
+    var findRouteById = function(Route, $route) {
+      var id = $route.current.params.id;
+      if (id) {
+        return Route.find(id);
+      }
+    };
+
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -27,6 +35,13 @@ angular.module('faiteslemurApp', ['Parse'])
         controller: 'PlaceCtrl',
         resolve: {
           $place: findPlaceById
+        }
+      })
+      .when('/route/:id', {
+        templateUrl: 'views/route.html',
+        controller: 'RouteCtrl',
+        resolve: {
+          $route: findRouteById
         }
       })
       .otherwise({

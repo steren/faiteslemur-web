@@ -9,7 +9,7 @@ angular.module('faiteslemurApp')
       return Route.__super__.constructor.apply(this, arguments);
     }
     __extends(Route, Parse.Model);
-    Route.configure( 'Route', 'name', 'place', 'color', 'grade', 'instructions', 'openedAt');
+    Route.configure( 'Route', 'name', 'place', 'color', 'grade', 'instructions', 'openedAt', 'objectId');
 
     return Route;
 
