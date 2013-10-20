@@ -1,6 +1,6 @@
 <div class="hero-unit">
   <h2>Indoor climbing places:</h2>
   <ul>
-      <li ng-repeat="place in places">{{place.name}}</li>
+      <li ng-repeat="place in places"><a href="#/place/{{place.objectId}}">{{place.name}}</a></li>
   </ul>
 </div>

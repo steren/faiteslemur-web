@@ -1,7 +1,14 @@
 'use strict';
 
-angular.module('faiteslemurApp', ["Parse"])
+angular.module('faiteslemurApp', ['Parse'])
   .config(function ($routeProvider) {
+    var findPlaceById = function(Place, $route) {
+      var id = $route.current.params.id;
+      if (id) {
+        return Place.find(id);
+      }
+    };
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -14,6 +21,13 @@ angular.module('faiteslemurApp', ["Parse"])
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl'
+      })
+      .when('/place/:id', {
+        templateUrl: 'views/place.html',
+        controller: 'PlaceCtrl',
+        resolve: {
+          $place: findPlaceById
+        }
       })
       .otherwise({
         redirectTo: '/'
