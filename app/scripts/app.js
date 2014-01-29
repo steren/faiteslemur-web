@@ -16,6 +16,25 @@ angular.module('faiteslemurApp', ['Parse'])
       }
     };
 
+    var findClimbById = function(Climb, $route) {
+      var id = $route.current.params.id;
+      if (id) {
+        return Climb.find(id);
+      }
+    };
+
+    var createCimb = function(Climb, Route, $route) {
+      var routeId = $route.current.params.route;
+      var newClimb = new Climb();
+
+      if(routeId) {
+        Route.find(routeId).then(function(route) {
+          newClimb.route = route;
+        });
+      }
+
+      return newClimb;
+    };
 
     $routeProvider
       .when('/', {
@@ -42,6 +61,20 @@ angular.module('faiteslemurApp', ['Parse'])
         controller: 'RouteCtrl',
         resolve: {
           $route: findRouteById
+        }
+      })
+      .when('/climb/new', {
+        templateUrl: 'views/climb.html',
+        controller: 'ClimbCtrl',
+        resolve: {
+          climb: createCimb
+        }
+      })
+      .when('/climb/:id', {
+        templateUrl: 'views/climb.html',
+        controller: 'ClimbCtrl',
+        resolve: {
+          climb: findClimbById
         }
       })
       .otherwise({

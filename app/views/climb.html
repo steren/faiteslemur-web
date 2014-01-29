@@ -1,0 +1,22 @@
+<p>Add a climb</p>
+
+{{climb.route}}
+
+{{climb.note}}
+
+<label class="radio inline">
+  <input type="radio" ng-model="climb.status" name="climbStatus">
+  Fail
+</label>
+<label class="radio inline">
+  <input type="radio" ng-model="climb.status" name="climbStatus">
+  Pass
+</label>
+
+<label class="checkbox">
+      <input type="checkbox" ng-model="climb.lead"> Lead
+</label>
+
+<textarea rows="3" ng-model="climb.note"></textarea>
+
+<button class="btn" ng-click="save()">Save</button>
