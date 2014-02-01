@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('PlaceCtrl', function ($scope, $routeParams, $place, Route) {
+  .controller('PlaceCtrl', function ($scope, $routeParams, $place, Route, Climb) {
     $scope.place = $place;
 
     $scope.routes = Route.query({

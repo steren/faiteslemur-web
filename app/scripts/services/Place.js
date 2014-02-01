@@ -12,7 +12,7 @@ angular.module('faiteslemurApp')
       return Place.__super__.constructor.apply(this, arguments);
     }
     __extends(Place, Parse.Model);
-    Place.configure( 'Place', 'name', 'objectId');
+    Place.configure( 'Place', 'name', 'city', 'address', 'picture', 'objectId');
 
     return Place;
 

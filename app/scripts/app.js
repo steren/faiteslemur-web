@@ -67,14 +67,16 @@ angular.module('faiteslemurApp', ['Parse'])
         templateUrl: 'views/climb.html',
         controller: 'ClimbCtrl',
         resolve: {
-          climb: createCimb
+          climb: createCimb,
+          isNew: function() {return true;}
         }
       })
       .when('/climb/:id', {
         templateUrl: 'views/climb.html',
         controller: 'ClimbCtrl',
         resolve: {
-          climb: findClimbById
+          climb: findClimbById,
+          isNew: function() {return false;}
         }
       })
       .otherwise({

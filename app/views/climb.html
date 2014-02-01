@@ -1,8 +1,10 @@
-<p>Add a climb</p>
-
-{{climb.route}}
-
-{{climb.note}}
+<div class="page-header">
+  <h1>
+    <!-- TODO use ng-if directive from Angular 1.2 -->
+    <span ng-show="isNew">Add a new climb</span>
+    <span ng-hide="isNew">Climb detail</span>
+  </h1>
+</div>
 
 <label class="radio inline">
   <input type="radio" ng-model="climb.status" name="climbStatus">
