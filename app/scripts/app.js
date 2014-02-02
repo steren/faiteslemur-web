@@ -23,7 +23,7 @@ angular.module('faiteslemurApp', ['Parse'])
       }
     };
 
-    var createCimb = function(Climb, Route, $route) {
+    var createClimb = function(Climb, Route, $route) {
       var routeId = $route.current.params.route;
       var newClimb = new Climb();
 
@@ -67,7 +67,7 @@ angular.module('faiteslemurApp', ['Parse'])
         templateUrl: 'views/climb.html',
         controller: 'ClimbCtrl',
         resolve: {
-          climb: createCimb,
+          climb: createClimb,
           isNew: function() {return true;}
         }
       })
