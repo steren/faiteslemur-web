@@ -1,0 +1,53 @@
+<div class="page-header">
+  <h1>Edit route</h1>
+</div>
+
+<!-- TODO color picker -->
+
+<form class="form-horizontal">
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Name</label>
+    <div class="controls">
+      <input type="text" ng-model="route.name">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Number</label>
+    <div class="controls">
+      <input type="number" ng-model="route.number">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Grade</label>
+    <div class="controls">
+      <input type="text" ng-model="route.grade">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Opener</label>
+    <div class="controls">
+      <input type="text" ng-model="route.opener">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Open date</label>
+    <div class="controls">
+      <input type="date" ng-model="route.openedAt">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Instructions</label>
+    <div class="controls">
+      <textarea rows="3" ng-model="route.instructions"></textarea>
+    </div>
+  </div>
+
+<button class="btn" ng-click="save()">Save</button>
+
+</form>

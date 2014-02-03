@@ -16,6 +16,19 @@ angular.module('faiteslemurApp', ['Parse', 'analytics'])
       }
     };
 
+    var createRoute = function(Route, Place, $route) {
+      var placeId = $route.current.params.place;
+      var newRoute = new Route();
+
+      if(placeId) {
+        Place.find(placeId).then(function(place) {
+          newRoute.place = place;
+        });
+      }
+
+      return newRoute;
+    };
+
     var findClimbById = function(Climb, $route) {
       var id = $route.current.params.id;
       if (id) {
@@ -55,6 +68,20 @@ angular.module('faiteslemurApp', ['Parse', 'analytics'])
         // TODO: is it really good to load data using resolve? since the view won't be displayed before promise is resolved.
         resolve: {
           place: findPlaceById
+        }
+      })
+      .when('/route/new', {
+        templateUrl: 'views/routeEdit.html',
+        controller: 'RouteCtrl',
+        resolve: {
+          route: createRoute
+        }
+      })
+      .when('/route/:id/edit', {
+        templateUrl: 'views/routeEdit.html',
+        controller: 'RouteCtrl',
+        resolve: {
+          route: findRouteById
         }
       })
       .when('/route/:id', {
