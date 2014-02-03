@@ -52,15 +52,16 @@ angular.module('faiteslemurApp', ['Parse'])
       .when('/place/:id', {
         templateUrl: 'views/place.html',
         controller: 'PlaceCtrl',
+        // TODO: is it really good to load data using resolve? since the view won't be displayed before promise is resolved.
         resolve: {
-          $place: findPlaceById
+          place: findPlaceById
         }
       })
       .when('/route/:id', {
         templateUrl: 'views/route.html',
         controller: 'RouteCtrl',
         resolve: {
-          $route: findRouteById
+          route: findRouteById
         }
       })
       .when('/climb/new', {
