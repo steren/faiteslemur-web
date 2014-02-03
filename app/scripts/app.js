@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('faiteslemurApp', ['Parse'])
+angular.module('faiteslemurApp', ['Parse', 'analytics'])
   .config(function ($routeProvider) {
     var findPlaceById = function(Place, $route) {
       var id = $route.current.params.id;
@@ -89,6 +89,6 @@ angular.module('faiteslemurApp', ['Parse'])
       });
   }).config(function (ParseProvider) {
     ParseProvider.initialize('J5J1c57Om78o24I3BIhN9CWz3N9fFQElXojVtWvE', 'fgopppzdQ7X84Lxg0YmigckYNcm5akAysh0C6Q4I');
-  }).run(function(Parse) {
+  }).run(function(Parse, analytics) {
     return Parse.auth.resumeSession();
   });
