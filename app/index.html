@@ -45,7 +45,7 @@
             </form>
           </div>
           <div class="navbar-form pull-right" ng-show="auth.currentUser">
-            <p class="navbar-text">{{auth.currentUser.username}} <a ng-click="signout()">Sign out</a></p>
+            <p class="navbar-text"><a href="#user/{{auth.currentUser.objectId}}">{{auth.currentUser.username}}</a> <a ng-click="signout()">Sign out</a></p>
           </div>
         </div>
       </div>
@@ -103,6 +103,7 @@
         <script src="scripts/controllers/place.js"></script>
         <script src="scripts/controllers/route.js"></script>
         <script src="scripts/controllers/climb.js"></script>
+        <script src="scripts/controllers/activity.js"></script>
         <!-- endbuild -->
 </body>
 </html>

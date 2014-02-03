@@ -79,6 +79,10 @@ angular.module('faiteslemurApp', ['Parse'])
           isNew: function() {return false;}
         }
       })
+      .when('/user/:userId', {
+        templateUrl: 'views/activity.html',
+        controller: 'ActivityCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
