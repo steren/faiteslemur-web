@@ -4,16 +4,19 @@
     <span ng-show="isNew">Add a new climb</span>
     <span ng-hide="isNew">Climb detail</span>
   </h1>
+  <a href="#/route/{{climb.route.objectId}}">({{climb.route.grade}}) {{climb.route.name}}</a>
+  <span>on {{climb.createdAt | date}}</span>
 </div>
 
 <label class="radio inline">
-  <input type="radio" ng-model="climb.status" name="climbStatus">
-  Fail
+  <input type="radio" ng-model="climb.status" name="climbStatus" value="done" checked="checked">
+  Done
 </label>
 <label class="radio inline">
-  <input type="radio" ng-model="climb.status" name="climbStatus">
-  Pass
+  <input type="radio" ng-model="climb.status" name="climbStatus" value="fail">
+  Fail
 </label>
+
 
 <label class="checkbox">
       <input type="checkbox" ng-model="climb.lead"> Lead

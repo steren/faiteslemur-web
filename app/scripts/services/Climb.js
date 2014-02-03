@@ -9,7 +9,7 @@ angular.module('faiteslemurApp')
       return Climb.__super__.constructor.apply(this, arguments);
     }
     __extends(Climb, Parse.Model);
-    Climb.configure( 'Climb', 'status', 'objectId', 'date', 'lead', 'note', 'route', 'user');
+    Climb.configure( 'Climb', 'status', 'objectId', 'createdAt', 'lead', 'note', 'route', 'user');
 
     return Climb;
 

@@ -19,7 +19,7 @@ angular.module('faiteslemurApp', ['Parse'])
     var findClimbById = function(Climb, $route) {
       var id = $route.current.params.id;
       if (id) {
-        return Climb.find(id);
+        return Climb.find(id, {include: 'route'});
       }
     };
 
