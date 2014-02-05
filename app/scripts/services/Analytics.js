@@ -1,3 +1,5 @@
+'use strict';
+
 // taken from http://stackoverflow.com/questions/10713708/tracking-google-analytics-page-views-with-angular-js
 
 (function(angular) {

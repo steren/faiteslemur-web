@@ -5,17 +5,20 @@ angular.module('faiteslemurApp')
     $scope.auth = Parse.auth;
     $scope.user = {};
     $scope.errorMessage = null;
-    return $scope.register = function(user) {
+    $scope.register = function(user) {
       if (user.password !== user.passwordConfirm) {
-        return $scope.errorMessage = 'Passwords must match';
+        $scope.errorMessage = 'Passwords must match';
+        return $scope.errorMessage;
       }
       if (!(user.username && user.password)) {
-        return $scope.errorMessage = 'Please supply an email and password';
+        $scope.errorMessage = 'Please supply an email and password';
+        return $scope.errorMessage;
       }
       return Parse.auth.register(user.username, user.password).then(function() {
         return $location.path('/');
       }, function(err) {
-        return $scope.errorMessage = err.data.error;
+        $scope.errorMessage = err.data.error;
+        return $scope.errorMessage;
       });
     };
   });

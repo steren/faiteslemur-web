@@ -5,16 +5,19 @@ angular.module('faiteslemurApp')
     $scope.auth = Parse.auth;
     $scope.user = {};
     $scope.errorMessage = null;
-    return $scope.signin = function(user) {
+    $scope.signin = function(user) {
       if (!(user.username && user.password)) {
-        return $scope.errorMessage = 'Please supply an email and password';
+        $scope.errorMessage = 'Please supply an email and password';
+        return $scope.errorMessage;
       }
-      return Parse.auth.login(user.username, user.password).then(function() {
+
+      Parse.auth.login(user.username, user.password).then(function() {
         console.log('in', arguments);
         return $location.path('/');
       }, function(err) {
         console.log('out', arguments);
-        return $scope.errorMessage = err.data.error;
+        $scope.errorMessage = err.data.error;
+        return $scope.errorMessage;
       });
     };
   });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('ActivityCtrl', function ($scope, $routeParams, Climb, Parse) {
+  .controller('ActivityCtrl', function ($scope, $routeParams, Climb) {
 
     $scope.climbs = Climb.query({
       where: {

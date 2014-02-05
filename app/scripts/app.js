@@ -116,6 +116,10 @@ angular.module('faiteslemurApp', ['Parse', 'analytics'])
       });
   }).config(function (ParseProvider) {
     ParseProvider.initialize('J5J1c57Om78o24I3BIhN9CWz3N9fFQElXojVtWvE', 'fgopppzdQ7X84Lxg0YmigckYNcm5akAysh0C6Q4I');
-  }).run(function(Parse, analytics) {
+  })
+
+  // TODO: use 'jshint ignore:line' to ignore the unused analytics
+  /* jshint unused: false */
+  .run(function(Parse, analytics) {
     return Parse.auth.resumeSession();
   });
