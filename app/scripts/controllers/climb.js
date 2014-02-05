@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('ClimbCtrl', function ($scope, $location, climb, isNew) {
+  .controller('ClimbCtrl', ['$scope', '$location', 'climb', 'isNew', function ($scope, $location, climb, isNew) {
 
     $scope.climb = climb;
     $scope.isNew = isNew;
@@ -18,4 +18,4 @@ angular.module('faiteslemurApp')
       $location.path('/place/' + climb.route.place.objectId);
     };
 
-  });
+  }]);

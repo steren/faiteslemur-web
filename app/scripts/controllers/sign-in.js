@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('SignInCtrl', function ($location, $window, $scope, Parse) {
+  .controller('SignInCtrl', ['$location', '$window', '$scope', 'Parse', function ($location, $window, $scope, Parse) {
     $scope.auth = Parse.auth;
     $scope.user = {};
     $scope.errorMessage = null;
@@ -20,4 +20,4 @@ angular.module('faiteslemurApp')
         return $scope.errorMessage;
       });
     };
-  });
+  }]);

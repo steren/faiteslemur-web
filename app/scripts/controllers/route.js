@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('RouteCtrl', function ($scope, route, $location) {
+  .controller('RouteCtrl', ['$scope', 'route', '$location', function ($scope, route, $location) {
     $scope.route = route;
 
     $scope.save = function() {
@@ -16,4 +16,4 @@ angular.module('faiteslemurApp')
 
     };
 
-  });
+  }]);

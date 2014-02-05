@@ -1,22 +1,23 @@
 'use strict';
 
 angular.module('faiteslemurApp', ['Parse', 'analytics'])
-  .config(function ($routeProvider) {
-    var findPlaceById = function(Place, $route) {
+  .config(['$routeProvider', function ($routeProvider) {
+
+    var findPlaceById = ['Place', '$route', function(Place, $route) {
       var id = $route.current.params.id;
       if (id) {
         return Place.find(id);
       }
-    };
+    }];
 
-    var findRouteById = function(Route, $route) {
+    var findRouteById = ['Route', '$route', function(Route, $route) {
       var id = $route.current.params.id;
       if (id) {
         return Route.find(id);
       }
-    };
+    }];
 
-    var createRoute = function(Route, Place, $route) {
+    var createRoute = ['Route', 'Place', '$route', function(Route, Place, $route) {
       var placeId = $route.current.params.place;
       var newRoute = new Route();
 
@@ -27,16 +28,16 @@ angular.module('faiteslemurApp', ['Parse', 'analytics'])
       }
 
       return newRoute;
-    };
+    }];
 
-    var findClimbById = function(Climb, $route) {
+    var findClimbById = ['Climb', '$route', function(Climb, $route) {
       var id = $route.current.params.id;
       if (id) {
         return Climb.find(id, {include: 'route'});
       }
-    };
+    }];
 
-    var createClimb = function(Climb, Route, $route) {
+    var createClimb = ['Climb', 'Route', '$route', function(Climb, Route, $route) {
       var routeId = $route.current.params.route;
       var newClimb = new Climb();
 
@@ -47,7 +48,7 @@ angular.module('faiteslemurApp', ['Parse', 'analytics'])
       }
 
       return newClimb;
-    };
+    }];
 
     $routeProvider
       .when('/', {
@@ -114,12 +115,12 @@ angular.module('faiteslemurApp', ['Parse', 'analytics'])
       .otherwise({
         redirectTo: '/'
       });
-  }).config(function (ParseProvider) {
+  }]).config(['ParseProvider', function (ParseProvider) {
     ParseProvider.initialize('J5J1c57Om78o24I3BIhN9CWz3N9fFQElXojVtWvE', 'fgopppzdQ7X84Lxg0YmigckYNcm5akAysh0C6Q4I');
-  })
+  }])
 
   // TODO: use 'jshint ignore:line' to ignore the unused analytics
   /* jshint unused: false */
-  .run(function(Parse, analytics) {
+  .run(['Parse', 'analytics', function(Parse, analytics) {
     return Parse.auth.resumeSession();
-  });
+  }]);

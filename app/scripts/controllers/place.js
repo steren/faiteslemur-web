@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('PlaceCtrl', function ($scope, place, Route, Climb) {
+  .controller('PlaceCtrl', ['$scope', 'place', 'Route', 'Climb', function ($scope, place, Route, Climb) {
     $scope.place = place;
 
     $scope.routes = Route.query({
@@ -25,4 +25,4 @@ angular.module('faiteslemurApp')
       });
     };
 
-  });
+  }]);

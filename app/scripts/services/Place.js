@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .factory('Place', function (Parse) {
+  .factory('Place', ['Parse', function (Parse) {
 
     // Using Angular's copy is not working, the classes still share the same prototype?
     // var Place = angular.copy(Parse.Model);
@@ -17,4 +17,4 @@ angular.module('faiteslemurApp')
 
     return Place;
 
-  });
+  }]);

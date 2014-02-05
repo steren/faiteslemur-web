@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('RegisterCtrl', function ($location, $window, $scope, Parse) {
+  .controller('RegisterCtrl', ['$location', '$window', '$scope', 'Parse', function ($location, $window, $scope, Parse) {
     $scope.auth = Parse.auth;
     $scope.user = {};
     $scope.errorMessage = null;
@@ -21,4 +21,4 @@ angular.module('faiteslemurApp')
         return $scope.errorMessage;
       });
     };
-  });
+  }]);
