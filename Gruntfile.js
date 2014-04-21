@@ -340,7 +340,35 @@ module.exports = function (grunt) {
           ]
         }
       }
-    }
+    },
+    ngconstant: {
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config'
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js',
+        },
+        constants: {
+          parseAppID: 'J5J1c57Om78o24I3BIhN9CWz3N9fFQElXojVtWvE',
+          parseAPIKey: 'fgopppzdQ7X84Lxg0YmigckYNcm5akAysh0C6Q4I'
+        }
+      },
+      production: {
+        options: {
+          dest: '<%= yeoman.dist %>/scripts/config.js',
+        },
+        constants: {
+          constants: {
+            parseAppID: 'txwvWhaS610L6jQ6ZAOG31lFQLbqwotzffjS2DUY',
+            parseAPIKey: 'YslbYOFhF4AhBGuN3FUPF5dgHvXb3NtKjic12GPE'
+          }
+        }
+      }
+    },
   });
 
   grunt.registerTask('server', function (target) {
@@ -350,6 +378,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -368,6 +397,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

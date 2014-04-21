@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('faiteslemurApp', ['Parse', 'analytics'])
+angular.module('faiteslemurApp', ['Parse', 'analytics', 'config'])
   .config(['$routeProvider', function ($routeProvider) {
 
     var findPlaceById = ['Place', '$route', function(Place, $route) {
@@ -115,8 +115,8 @@ angular.module('faiteslemurApp', ['Parse', 'analytics'])
       .otherwise({
         redirectTo: '/'
       });
-  }]).config(['ParseProvider', function (ParseProvider) {
-    ParseProvider.initialize('J5J1c57Om78o24I3BIhN9CWz3N9fFQElXojVtWvE', 'fgopppzdQ7X84Lxg0YmigckYNcm5akAysh0C6Q4I');
+  }]).config(['ParseProvider', 'parseAppID', 'parseAPIKey', function (ParseProvider, parseAppID, parseAPIKey) {
+    ParseProvider.initialize(parseAppID, parseAPIKey);
   }])
 
   // TODO: use 'jshint ignore:line' to ignore the unused analytics
