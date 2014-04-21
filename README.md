@@ -6,15 +6,15 @@ How ot run
 
 Develop:
 
-  $ grunt server
+    $ grunt server
 
 Deploy front-end to GitHUb pages:
 
-  $ grunt build
-  $ grunt buildcontrol:pages
+    $ grunt build
+    $ grunt buildcontrol:pages
 
 Deploy backend code:
 
-  $ cd parse-cloud
-  $ parse develop "Faites le mur"
-  $ parse deploy "PROD Faites le mur"
+    $ cd parse-cloud
+    $ parse develop "Faites le mur"
+    $ parse deploy "PROD Faites le mur"
