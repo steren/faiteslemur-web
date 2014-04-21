@@ -4,6 +4,10 @@
             "applicationId": "J5J1c57Om78o24I3BIhN9CWz3N9fFQElXojVtWvE", 
             "masterKey": "FNX6kkJzDCaYG2tWK5v8duC5upOV9cgDbJh14Ud8"
         }, 
+        "PROD Faites le mur": {
+            "applicationId": "txwvWhaS610L6jQ6ZAOG31lFQLbqwotzffjS2DUY", 
+            "masterKey": "bet2Aq0ZweMS0xMy0f4gzx0P8wwli9BD7wg5vRxm"
+        }, 
         "_default": {
             "link": "Faites le mur"
         }
