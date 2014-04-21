@@ -9,7 +9,7 @@
     "es5-shim": "~2.0.8",
     "angular-resource": "~1.0.7",
     "angular-cookies": "~1.0.7",
-    "angular-parse": "",
+    "angular-parse": "https://github.com/steren/angular-parse.git",
     "underscore": "1.5.*"
   },
   "devDependencies": {
