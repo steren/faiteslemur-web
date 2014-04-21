@@ -5,6 +5,7 @@ var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
+var pkg = require('./package.json');
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -367,6 +368,20 @@ module.exports = function (grunt) {
         }
       }
     },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:steren/faiteslemur-web.git',
+          branch: 'gh-pages'
+        }
+      }
+    }
   });
 
   grunt.registerTask('server', function (target) {
