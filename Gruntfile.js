@@ -359,13 +359,11 @@ module.exports = function (grunt) {
       },
       production: {
         options: {
-          dest: '<%= yeoman.dist %>/scripts/config.js',
+          dest: '.tmp/scripts/config.js',
         },
         constants: {
-          constants: {
-            parseAppID: 'txwvWhaS610L6jQ6ZAOG31lFQLbqwotzffjS2DUY',
-            parseAPIKey: 'YslbYOFhF4AhBGuN3FUPF5dgHvXb3NtKjic12GPE'
-          }
+          parseAppID: 'txwvWhaS610L6jQ6ZAOG31lFQLbqwotzffjS2DUY',
+          parseAPIKey: 'YslbYOFhF4AhBGuN3FUPF5dgHvXb3NtKjic12GPE'
         }
       }
     },
