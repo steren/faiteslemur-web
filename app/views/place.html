@@ -5,13 +5,13 @@
   </h1>
 </div>
 
-  <ul class="routelist">
-      <li ng-repeat="route in routes" class="route">
+  <ul class="list-group">
+      <li ng-repeat="route in routes" class="list-group-item">
         <a href="#/route/{{route.objectId}}">
           <span class="grade" style="background-color:#{{route.color[0]}}">{{route.grade}}</span> {{route.name}}
         </a>
-        <button class="btn quick-climb" ng-click="quickClimb(route.objectId)"><i class="icon-check"></i></button>
+        <button class="btn quick-climb" ng-click="quickClimb(route.objectId)"><span class="glyphicon glyphicon-check"></span></button>
       </li>
   </ul>
 
-<a href="#/route/new?place={{place.objectId}}" class="btn btn-primary"><i class="icon-plus-sign icon-white"></i> New route</a>
+<a href="#/route/new?place={{place.objectId}}" class="btn btn-default">New route</a>

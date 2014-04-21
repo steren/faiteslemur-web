@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
@@ -25,34 +25,37 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div class="navbar navbar-static-top">
-      <div class="navbar-inner" ng-controller="AuthCtrl">
-        <div class="container">
-          <div>
-            <a href="#" class="brand">Faites le mur</a>
-          </div>
-          <div class="navbar-form pull-right" ng-hide="auth.currentUser">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="AuthCtrl">
+      <div class="container">
+
+          <a class="navbar-brand" href="#">Faites le mur</a>
+
+          <div class="navbar-right" ng-hide="auth.currentUser">
             <div ng-hide="showLogin">
-              <a class="btn" ng-click="showLogin=true">Sign in</a>
-              <a class="btn btn-primary" href="#/register">Register</a>
+              <a class="btn btn-success navbar-btn" ng-click="showLogin=true">Sign in</a>
+              <a class="btn btn-primary navbar-btn" href="#/register">Register</a>
             </div>
-            <form ng-show="showLogin"  class="navbar-form"
-              ng-submit="signin(user)" ng-controller="SignInCtrl">
-              <input type="text" ng-model="user.username" placeholder="email" autofocus class="span2">
-              <input type="password" ng-model="user.password" placeholder="password" class="span2">
-              <button class="btn btn-primary" >Sign In</button>
-              <a class="btn" href="#/register">Register</a>
+
+            <form ng-show="showLogin" class="navbar-form" ng-submit="signin(user)" ng-controller="SignInCtrl">
+              <input class="form-control" type="email" ng-model="user.username" placeholder="email" autofocus>
+              <input class="form-control" type="password" ng-model="user.password" placeholder="password">
+              <button class="btn btn-primary" >Sign in</button>
+              <a class="btn btn-success" href="#/register">Register</a>
             </form>
           </div>
-          <div class="navbar-form pull-right" ng-show="auth.currentUser">
-            <p class="navbar-text"><a href="#user/{{auth.currentUser.objectId}}">{{auth.currentUser.username}}</a> <a ng-click="signout()">Sign out</a></p>
+
+          <div class="navbar-right" ng-show="auth.currentUser">
+            <a class="btn btn-success navbar-btn" href="#user/{{auth.currentUser.objectId}}" title="{{auth.currentUser.username}}">Me</a>
+            <a class="btn btn-success navbar-btn" href="#" ng-click="signout()">Sign out</a>
           </div>
-        </div>
+
       </div>
     </div>
 
+
+
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container" role="main" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -69,19 +72,18 @@
     <script src="bower_components/angular/angular.js"></script>
 
         <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->

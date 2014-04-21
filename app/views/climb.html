@@ -3,25 +3,34 @@
     <!-- TODO use ng-if directive from Angular 1.2 -->
     <span ng-show="isNew">Add a new climb</span>
     <span ng-hide="isNew">Climb detail</span>
+    <small><a href="#/route/{{climb.route.objectId}}">({{climb.route.grade}}) {{climb.route.name}}</a></small>
   </h1>
-  <a href="#/route/{{climb.route.objectId}}">({{climb.route.grade}}) {{climb.route.name}}</a>
-  <span>on {{climb.createdAt | date}}</span>
+  <span ng-show="climb.createdAt">on {{climb.createdAt | date}}</span>
 </div>
 
-<label class="radio inline">
-  <input type="radio" ng-model="climb.status" name="climbStatus" value="done" checked="checked">
-  Done
-</label>
-<label class="radio inline">
-  <input type="radio" ng-model="climb.status" name="climbStatus" value="fail">
-  Fail
-</label>
 
+<form role="form">
 
-<label class="checkbox">
-      <input type="checkbox" ng-model="climb.lead"> Lead
-</label>
+  <label class="radio-inline">
+    <input type="radio"  value="done" ng-model="climb.status" checked> Done
+  </label>
+  <label class="radio-inline">
+    <input type="radio" value="fail" ng-model="climb.status"> Fail
+  </label>
 
-<textarea rows="3" ng-model="climb.note"></textarea>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="climb.lead" checked> Lead
+    </label>
+  </div>
 
-<button class="btn" ng-click="save()">Save</button>
+  <div class="form-group">
+    <label>Notes</label>
+    <textarea class="form-control" rows="3" ng-model="climb.note"></textarea>
+  </div>
+
+  <a class="btn btn-default" href="#/route/{{climb.route.objectId}}">Cancel</a>
+  <button class="btn btn-primary" ng-click="save()">Save</button>
+
+</form>
+

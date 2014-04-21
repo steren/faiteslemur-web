@@ -4,50 +4,38 @@
 
 <!-- TODO color picker -->
 
-<form class="form-horizontal">
-
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Name</label>
-    <div class="controls">
-      <input type="text" ng-model="route.name">
-    </div>
+<form role="form">
+  <div class="form-group">
+    <label for="inputRouteName">Name</label>
+    <input type="text" class="form-control" id="inputRouteName" ng-model="route.name" placeholder="High Hopes">
   </div>
 
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Number</label>
-    <div class="controls">
-      <input type="number" ng-model="route.number">
-    </div>
+  <div class="form-group">
+    <label for="inputRouteNumber">Number</label>
+    <input type="number" class="form-control" id="inputRouteNumber" ng-model="route.number" placeholder="3">
   </div>
 
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Grade</label>
-    <div class="controls">
-      <input type="text" ng-model="route.grade">
-    </div>
+  <div class="form-group">
+    <label for="inputRouteGrade">Grade</label>
+    <input type="text" class="form-control" id="inputRouteGrade" ng-model="route.grade" placeholder="6b">
   </div>
 
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Opener</label>
-    <div class="controls">
-      <input type="text" ng-model="route.opener">
-    </div>
+  <div class="form-group">
+    <label for="inputRouteOpener">Opener</label>
+    <input type="text" class="form-control" id="inputRouteOpener" ng-model="route.opener">
   </div>
 
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Open date</label>
-    <div class="controls">
-      <input type="date" ng-model="route.openedAt">
-    </div>
+  <div class="form-group">
+    <label for="inputRouteOpenedAt">Open date</label>
+    <input type="date" class="form-control" id="inputRouteOpenedAt" ng-model="route.openedAd">
   </div>
 
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Instructions</label>
-    <div class="controls">
-      <textarea rows="3" ng-model="route.instructions"></textarea>
-    </div>
+  <div class="form-group">
+    <label for="inputRouteInstructions">Instructions</label>
+    <textarea class="form-control" rows="3" ng-model="route.instructions"></textarea>
   </div>
 
-<button class="btn" ng-click="save()">Save</button>
-
+  <a class="btn btn-default" href="#/place/{{route.place.objectId}}">Cancel</a>
+  <button class="btn btn-primary" ng-click="save()">Save</button>
 </form>
+
