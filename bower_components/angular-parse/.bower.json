@@ -1,0 +1,21 @@
+{
+  "name": "angular-parse",
+  "main": [
+    "angular-parse.js"
+  ],
+  "dependencies": {},
+  "install": {
+    "path": "lib"
+  },
+  "homepage": "https://github.com/steren/angular-parse",
+  "_release": "dffa1efc0c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "dffa1efc0cb84748df75425c24dbe4460425605e"
+  },
+  "_source": "https://github.com/steren/angular-parse.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/steren/angular-parse.git",
+  "_direct": true
+}

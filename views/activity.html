@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h1>Your activity</h1>
+</div>
+
+<ul class="list-group">
+  <!-- TODO: cluster by day -->
+  <li class="list-group-item" ng-repeat="climb in climbs">
+    <a href="#/climb/{{climb.objectId}}">
+      <span class="grade" style="background-color:#{{climb.route.color[0]}}">{{climb.route.grade}}</span> {{climb.route.name}}
+    </a>
+  </li>
+</ul>

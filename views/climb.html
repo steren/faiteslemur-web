@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>
+    <!-- TODO use ng-if directive from Angular 1.2 -->
+    <span ng-show="isNew">Add a new climb</span>
+    <span ng-hide="isNew">Climb detail</span>
+    <small><a href="#/route/{{climb.route.objectId}}">({{climb.route.grade}}) {{climb.route.name}}</a></small>
+  </h1>
+  <span ng-show="climb.createdAt">on {{climb.createdAt | date}}</span>
+</div>
+
+
+<form role="form">
+
+  <label class="radio-inline">
+    <input type="radio" value="done" ng-model="climb.status" checked="checked"> Done
+  </label>
+  <label class="radio-inline">
+    <input type="radio" value="fail" ng-model="climb.status"> Fail
+  </label>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="climb.lead" checked="checked"> Lead
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Notes</label>
+    <textarea class="form-control" rows="3" ng-model="climb.note"></textarea>
+  </div>
+
+  <a class="btn btn-default" href="#/route/{{climb.route.objectId}}">Cancel</a>
+  <button class="btn btn-primary" ng-click="save()">Save</button>
+
+</form>
