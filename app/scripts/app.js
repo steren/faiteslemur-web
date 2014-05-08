@@ -10,6 +10,10 @@ angular.module('faiteslemurApp', ['Parse', 'analytics', 'config'])
       }
     }];
 
+    var createPlace = ['Place', function(Place) {
+      return new Place();
+    }];
+
     var findRouteById = ['Route', '$route', function(Route, $route) {
       var id = $route.current.params.id;
       if (id) {
@@ -63,6 +67,14 @@ angular.module('faiteslemurApp', ['Parse', 'analytics', 'config'])
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl'
       })
+      .when('/place/new', {
+        templateUrl: 'views/placeEdit.html',
+        controller: 'PlaceCtrl',
+        resolve: {
+          place: createPlace,
+          isNew: function() {return true;}
+        }
+      })
       .when('/place/:id', {
         templateUrl: 'views/place.html',
         controller: 'PlaceCtrl',
@@ -71,6 +83,16 @@ angular.module('faiteslemurApp', ['Parse', 'analytics', 'config'])
           place: findPlaceById
         }
       })
+      .when('/place/:id/edit', {
+        templateUrl: 'views/placeEdit.html',
+        controller: 'PlaceCtrl',
+        // TODO: is it really good to load data using resolve? since the view won't be displayed before promise is resolved.
+        resolve: {
+          place: findPlaceById,
+          isNew: function() {return false;}
+        }
+      })
+
       .when('/route/new', {
         templateUrl: 'views/routeEdit.html',
         controller: 'RouteCtrl',

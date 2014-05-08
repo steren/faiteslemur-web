@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('faiteslemurApp')
-  .controller('PlaceCtrl', ['$scope', 'place', 'Route', 'Climb', function ($scope, place, Route, Climb) {
+  .controller('PlaceCtrl', ['$scope', 'place', 'Route', 'Climb', '$location', function ($scope, place, Route, Climb, $location) {
     $scope.place = place;
 
     $scope.routes = Route.query({
@@ -23,6 +23,18 @@ angular.module('faiteslemurApp')
           console.log('climb saved');
         });
       });
+    };
+
+    $scope.save = function() {
+      $scope.place.save().then(function() {
+        console.log('place saved');
+        $location.path('/place/' + place.objectId);
+
+      }, function(error) {
+        console.log(error);
+        // TODO, if error, display error message
+      });
+
     };
 
   }]);
