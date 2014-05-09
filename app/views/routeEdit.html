@@ -2,13 +2,17 @@
   <h1>Edit route</h1>
 </div>
 
-<!-- TODO color picker -->
-
 <form role="form">
   <div class="form-group">
     <label for="inputRouteName">Name</label>
     <input type="text" class="form-control" id="inputRouteName" ng-model="route.name" placeholder="High Hopes">
   </div>
+
+  <div class="form-group" ng-repeat="col in route.color">
+    <label for="inputRouteColor">Color</label>
+    <input type="color" class="form-control" id="inputRouteColor" ng-model="col.value">
+  </div>
+  <p><a href="" ng-click="addColor()">add</a> or <a href="" ng-click="removeColor()">remove</a> color</p>
 
   <div class="form-group">
     <label for="inputRouteNumber">Line number</label>

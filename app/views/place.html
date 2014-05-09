@@ -10,7 +10,7 @@
   <ul class="list-group">
       <li ng-repeat="route in routes" class="list-group-item">
         <a href="#/route/{{route.objectId}}">
-          <span class="number">{{route.number}}</span>: <span class="grade" style="background-color:#{{route.color[0]}}">{{route.grade}}</span> {{route.name}}
+          <span class="number">{{route.number}}</span>: <span class="grade" style="background-color:{{route.color[0].value}}">{{route.grade}}</span> {{route.name}}
         </a>
         <button class="btn quick-climb" ng-click="quickClimb(route.objectId)"><span class="glyphicon glyphicon-check"></span></button>
       </li>

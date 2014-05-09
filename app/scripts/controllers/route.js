@@ -15,5 +15,15 @@ angular.module('faiteslemurApp')
       });
 
     };
+    
+    $scope.addColor = function() {
+      $scope.route.color.push({value:'#ffffff'});
+      return false;
+    }
+
+    $scope.removeColor = function() {
+      $scope.route.color.pop();
+      return false;
+    }
 
   }]);
