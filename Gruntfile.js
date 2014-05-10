@@ -360,7 +360,7 @@ module.exports = function (grunt) {
       },
       production: {
         options: {
-          dest: '.tmp/scripts/config.js',
+          dest: '<%= yeoman.app %>/scripts/config.js',
         },
         constants: {
           parseAppID: 'txwvWhaS610L6jQ6ZAOG31lFQLbqwotzffjS2DUY',
