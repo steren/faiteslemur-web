@@ -24,7 +24,6 @@ angular.module('faiteslemurApp', ['Parse', 'analytics', 'config'])
     var createRoute = ['Route', 'Place', '$route', function(Route, Place, $route) {
       var placeId = $route.current.params.place;
       var newRoute = new Route();
-      
       newRoute.color = [{value:'#ffffff'}];
 
       if(placeId) {
@@ -52,6 +51,9 @@ angular.module('faiteslemurApp', ['Parse', 'analytics', 'config'])
           newClimb.route = route;
         });
       }
+      // default when creating a climb
+      newClimb.status = 'done';
+      newClimb.lead = true;
 
       return newClimb;
     }];

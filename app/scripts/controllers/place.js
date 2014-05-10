@@ -17,6 +17,7 @@ angular.module('faiteslemurApp')
     $scope.quickClimb = function(routeId) {
       var newClimb = new Climb();
       newClimb.status = 'done';
+      newClimb.lead = true;
       Route.find(routeId).then(function(route) {
         newClimb.route = route;
         newClimb.save().then(function() {
